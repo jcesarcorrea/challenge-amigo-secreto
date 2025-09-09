@@ -8,6 +8,17 @@ function agregarAmigo() {
         alert("Por favor, inserte un nombre.");
     } else {
         amigos.push(amigo);
-        document.getElementById('amigo').value = "";
+        document.getElementById('amigo').value = "";        
     }
+    actualizarListaAmigos();
+}
+
+function actualizarListaAmigos() {
+   let lista = document.getElementById('listaAmigos');
+   lista.innerHTML = "";
+   for (let i = 0; i < amigos.length; i++) {
+    let nuevoLi = document.createElement("li");
+    nuevoLi.innerText = amigos[i];
+    lista.appendChild(nuevoLi);    
+   }
 }
